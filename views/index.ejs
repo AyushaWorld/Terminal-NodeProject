@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="../stylesheets/style.css">
+</head>
+<body>
+    <div id="back">
+        <div id="left">
+           <div class="icons">
+          <h5>Open Editors</h5>
+          <div class="icon">
+            <i id="add" class="ri-add-line"></i>
+            <a href="#" id="click-folder"><i class="ri-folder-line"></i></a>
+           </div>
+           </div> 
+           <hr>
+           <% files.forEach(function(value){ %> 
+          <div class="folder">
+            <a href="#"><%= value %></a>
+              <div class="icons">
+                <i class="ri-pencil-line"></i>
+                <a href= <%='/delete/'+value %>><i class="ri-delete-bin-line"></i></a>  
+              </div>
+           </div> 
+           <% }) %>
+        </div>
+        <div id="right">
+            <div class="uper">
+                <div class="data">
+                    <h6><%= files %></h6>
+                    <i class="fa fa-time"></i>
+                </div>
+                <div class="data">
+                    <h6>File name</h6>
+                    <p>X</p>
+                </div>
+            </div>
+            <div class="lower">
+                <form action="#">
+                    <textarea name="text" id="text" cols="30" rows="10"></textarea>
+                </form>
+                <div class="footer">
+                    <div class="top">
+                    <h3>Terminal<h3>
+                    <h3>problem<h3>
+                    <h3>output<h3>
+                    <h3>Debug console<h3>
+                    </div>
+                    <div class="span-text">
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      <span>< Folder created</span>
+                      
+                    </div>
+                    
+                </div>
+                
+            </div>
+        </div>
+        <div id="creation">
+          <div class="box">
+            <h3>Create Filename</h3>
+            <form action="/File-section" method="GET">
+            <input type="text" name="filename" placeholder="File name...">
+            <input type="submit" value="OK">
+            </form>
+            <button id="cancle">Cancle</button>     
+        </div>
+        </div>
+        <div id="folder-creation">
+          <div class="box">
+            <h3>Create Folder</h3>
+            <form action="/create/folder" method="GET">
+            <input type="text" name="fname" placeholder="folder name...">
+            <input type="submit" value="OK">
+            </form>
+            <button id="cancle1">Cancle</button>     
+        </div>
+        </div>
+     </div>
+       
+    <script>
+      let creation = document.querySelector('#creation');
+      let add = document.querySelector('#add');
+      let  cancle = document.querySelector('#cancle');
+      let folder = document.querySelector('#folder-creation');
+      let clk =document.querySelector('#click-folder')
+      let cancle1=document.querySelector('#cancle1')
+
+      add.addEventListener('click',function(){
+        creation.style.display = 'initial';
+      });
+
+      clk.addEventListener('click',function(){
+        folder.style.display = 'initial';
+      });
+
+      cancle.addEventListener('click',function(){
+        creation.style.display = 'none';
+      });
+
+      cancle1.addEventListener('click',function(){
+        folder.style.display = 'none';
+      });
+    </script>
+</body>
+</html>
